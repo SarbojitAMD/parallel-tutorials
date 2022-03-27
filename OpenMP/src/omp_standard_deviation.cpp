@@ -1,6 +1,14 @@
 #include "../utils/common.h"
 #include <math.h>
 
+/*
+ * Goal is to calculate Standard Deviation on huge data set which is most common/simple
+ * operation to find outliers in the given data set. With OpenMP performance gain is
+ * significant while changing serial code to parallel just takes two additional lines.
+ * 
+ * Performance gain seen on System (8core CPU + Windows10) is ~85%
+ */
+
 auto SD_serial(std::vector<int>& Nums) {
   long long sum=0;
   auto start = omp_get_wtime();

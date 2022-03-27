@@ -1,14 +1,12 @@
-#include <omp.h>
-#include <iostream>
 #include "../utils/common.h"
 #include <vector>
 #include <ctime>
 
 /*
- * Intension here is to show one of the very common use case where
-   huge array needs to be filled with random integer numbers.
-   We will be coding sequential & parallel program and show how easy to convert 
-   sequential program to parallel program using OpenMp
+ * Goal here is to show one of the very common use case where
+ * huge array needs to be filled with random integer numbers.
+ * 
+ * Performance gain seen on System (8core CPU + Windows10) is ~80%
  */
 
 void generate_N_serial(std::vector<int>& V) {

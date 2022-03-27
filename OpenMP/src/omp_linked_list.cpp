@@ -3,11 +3,11 @@
 
 using namespace std;
 
-/*
- * This is just an example of how to use OpenMp task.
- * But this is not a ideal way to use the task hence 
- * report shows that parallel implementation has lost
- * the performance.
+/* Goal:
+ * Explore OpenMP task parallelism in linked list traversal.
+ * By the program I wanted to show task parallelism has overhead hence
+ * it is useful only when task is a time taking task else it impacts 
+ * the performance
  */
 
 typedef struct node{
@@ -16,6 +16,7 @@ typedef struct node{
 }node;
 
 node* head_ll = nullptr;
+
 void create_ll(int num) {
   node* temp = nullptr;
   node* curr = nullptr;
@@ -76,8 +77,9 @@ int main(int argc, char* argv[]) {
   parseArgs(argc, argv);
   create_ll(g_num_elements);
 
-  std::cout<<count_even_ele_serial(head_ll)<<std::endl;
-  std::cout<<count_even_ele_parallel(head_ll)<<std::endl;
+  cout<<count_even_ele_serial(head_ll)<<endl;
+  cout<<count_even_ele_parallel(head_ll)<<endl;
+
   reportResults();
   return 0;
 }

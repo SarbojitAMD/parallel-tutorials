@@ -3,6 +3,16 @@
 
 using namespace std;
 
+/* Goal:
+ * As a CPP dev one must have written program to search an element in a 
+ * unsorted 2D matrix the data set. With this simple algorithm 
+ * I am trying to highlight some key OpenMP features :
+ *   1> Minimal change required in the serial program to enable parallelism via OpenMP
+ *   2> OpenMP Key Feature to watch in this program 'collapse'
+ *
+ *  Performance gain seen on System (8core CPU + Windows10) is ~70%
+ */
+
 bool find_serial(vector<vector<int>>& Mat, int val) {
   long row = Mat.size();
   long col = Mat[0].size();
@@ -38,9 +48,6 @@ bool find_parallel(vector<vector<int>>& Mat, int val) {
   results[parallel] = end-start;
   return found;
 }
-
-//TODO: Task parallel implementation where each task will get one colum to traverse
-
 
 int main(int argc, char* argv[]) {
   long row=0,col=0;

@@ -1,5 +1,16 @@
 #include "../utils/common.h"
 
+/* Goal:
+ * As a CPP dev one must have written program to count how many times 
+ * one or zero has occurred in the data set. With this simple algorithm 
+ * I am trying to highlight some key OpenMP features :
+ *   1> Minimal change required in the serial program to enable parallelism via OpenMP
+ *   2> OpenMP features are parallel, for, reduction, data sharing 
+ *   3> Good practice : Always mark default as none
+ *
+ *  Performance gain seen on System (8core CPU + Windows10) is ~80%
+ */
+
 using namespace std;
 
 long long count_ones_serial(vector<bool>& V) {

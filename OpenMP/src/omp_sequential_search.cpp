@@ -1,4 +1,12 @@
 #include "../utils/common.h"
+
+/*
+ * Goal here is to show one of the very commonly used algorithm where a value
+ * needs to be searched in a huge random integer array.
+ * 
+ * In worst case time complexity performance gain seen on System (8core CPU + Windows10) is ~70%
+ */
+
 bool find_sequential(std::vector<int>& V, int val) {
   long long idx;
   bool found = false;
